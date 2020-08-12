@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
     this.status=true;
     this.service.getCountryData(this.val).subscribe(
       data => {
-        console.log(data)
+        // console.log(data)
         var index=data.length-1;
         this.confirmed=data[index].Confirmed;
         this.recovered=data[index].Recovered;
