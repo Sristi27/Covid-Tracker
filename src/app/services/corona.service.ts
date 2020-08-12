@@ -15,7 +15,7 @@ export class CoronaService {
   getCountryData(country:any):Observable<any>{
 
     const url="https://api.covid19api.com/total/dayone/country/" + country;
-    return this.http.get<any>(url)
+    return this.http.get<any>(url);
   }
 }
 

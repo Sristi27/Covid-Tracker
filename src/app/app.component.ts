@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CoronaService } from "./services/corona.service"
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,7 @@ export class AppComponent implements OnInit {
   title = 'covid-tracker';
   countries = [];
   status=false;
+  val=""
   country: any;
   recovered:number=0;
   deaths:number=0;
@@ -23,18 +25,21 @@ export class AppComponent implements OnInit {
       data => {
         this.countries = data;
         this.countries.sort();
-        console.log(this.countries)
+        //console.log(this.countries)
         //console.log(data);
       }
     )
   }
 
-  getCountry(country: any) {
-    this.country =country;
-  }
-  getData() {
+  // getCountry(country: any) {
+  //   //console.log(country)
+  //   console.log(this.val)
+  //   this.country =country;
+  // }
+  getData(name:any) {
+    
     this.status=true;
-    this.service.getCountryData(this.country).subscribe(
+    this.service.getCountryData(this.val).subscribe(
       data => {
         console.log(data)
         var index=data.length-1;
@@ -45,4 +50,6 @@ export class AppComponent implements OnInit {
       }
     )
   }
-}
+
+  }
+
