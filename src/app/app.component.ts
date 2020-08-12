@@ -9,6 +9,7 @@ import { CoronaService } from "./services/corona.service"
 export class AppComponent implements OnInit {
   title = 'covid-tracker';
   countries = [];
+  status=false;
   country: any;
   recovered:number=0;
   deaths:number=0;
@@ -32,6 +33,7 @@ export class AppComponent implements OnInit {
     this.country =country;
   }
   getData() {
+    this.status=true;
     this.service.getCountryData(this.country).subscribe(
       data => {
         console.log(data)

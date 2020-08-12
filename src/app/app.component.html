@@ -6,7 +6,8 @@
   <title>{{title}}</title>
 </head>
 <body>
-  <h1>Coronavirus Tracker</h1>
+  <section>
+    <h1>Coronavirus Tracker</h1>
   <label for="country">Country</label>
   <select name="country" id="" (change)="getCountry($event.target.value)">
     <option value="" disabled selected>Select a country</option>
@@ -16,8 +17,11 @@
   <button (click)="getData()">
     Get Coronavirus Data
   </button>
-  <h1>Total Confirmed Cases:{{confirmed}}</h1>
-  <h1>Total Recovered Cases:{{recovered}}</h1>
-  <h1>Total Deaths:{{deaths}}</h1>
+  <mat-card *ngIf="status">
+   <h1>Total Confirmed Cases:{{confirmed}}</h1>
+   <h1>Total Recovered Cases:{{recovered}}</h1>
+   <h1>Total Deaths:{{deaths}}</h1>
+  </mat-card>
+  </section>
 </body>
 </html>

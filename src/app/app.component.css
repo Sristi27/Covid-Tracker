@@ -7,3 +7,15 @@ select:required:invalid {
   option {
     color: #000;
   }
+  section::before{
+    content: "";
+    height:100vh;
+    width: 100vw;
+    z-index: -1;
+    opacity:0.5;
+    position: absolute;
+    top:0;
+    left:0;
+    background: url("./images/blue-coronavirus-covid-19-pandemic-outbreak-background-design_1017-24425.jpg");
+    background-size: cover;
+  }
