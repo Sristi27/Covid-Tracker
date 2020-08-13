@@ -121,7 +121,48 @@
           }
         }
       }
+    },
+    "covid-lib": {
+      "projectType": "library",
+      "root": "projects/covid-lib",
+      "sourceRoot": "projects/covid-lib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/covid-lib/tsconfig.lib.json",
+            "project": "projects/covid-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/covid-lib/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/covid-lib/src/test.ts",
+            "tsConfig": "projects/covid-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/covid-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/covid-lib/tsconfig.lib.json",
+              "projects/covid-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
+   
   },
   "defaultProject": "covid-tracker"
 }
