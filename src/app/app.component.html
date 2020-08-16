@@ -1,35 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{title}}</title>
 </head>
+
 <body>
   <section>
     <h1>Coronavirus Tracker</h1>
-  <!-- <label for="country">Country</label>
-  <select name="country" id="" >
-    <option value="" disabled selected>Select a country</option>
-    <option value={{country.Slug}} *ngFor="let country of countries">{{country.Country}}</option>
-  </select> -->
-  <form action="" (submit)="getData($event.target.value)">
-    <mat-form-field appearance="outline">
-      <mat-label>Select a country</mat-label>
-      <mat-select name="country" [(ngModel)]="val">
-        <mat-option [value]="country.Slug" *ngFor="let country of countries">{{country.Country}}</mat-option>
-      </mat-select>
-    </mat-form-field>
+    <form action="" (submit)="getData($event.target.value)">
+      <mat-form-field appearance="outline">
+        <mat-label>Select a country</mat-label>
+        <mat-select name="country" [(ngModel)]="val">
+          <mat-option [value]="country.Slug" *ngFor="let country of countries">{{country.Country}}</mat-option>
+        </mat-select>
+      </mat-form-field>
 
-  <button mat-raised-button color="primary" type="submit">
-    Get Coronavirus Data
-  </button>
-  </form>
-   <mat-card *ngIf="status">
-    <h1>Total Confirmed Cases:{{confirmed}}</h1>
-    <h1>Total Recovered Cases:{{recovered}}</h1>
-    <h1>Total Deaths:{{deaths}}</h1>
-   </mat-card>
+      <button mat-raised-button color="primary" type="submit">
+        Get Coronavirus Data
+      </button>
+    </form>
+    <mat-card *ngIf="status">
+
+      <mat-grid-list cols="3" [gutterSize]="'10px'" rowHeight="6rem">
+
+        <mat-grid-tile style="background-color: rgb(248, 178, 138);" rowspan="2">
+
+          <mat-grid-tile-header  style="text-align: center;">
+            <h3 style="font-size:20px">Total Confirmed Cases</h3>
+          </mat-grid-tile-header>
+          <h1 style="font-size:40px">{{confirmed}}</h1>
+
+        </mat-grid-tile>
+
+        <mat-grid-tile style="background-color: rgb(47, 187, 47);" rowspan="2">
+
+          <mat-grid-tile-header  style="text-align: center;">
+            <h3 style="font-size:20px">Total Recovered Cases</h3>
+          </mat-grid-tile-header>
+          <h1 style="font-size:40px">{{recovered}}</h1>
+
+        </mat-grid-tile>
+
+        <mat-grid-tile style="background-color: rgb(211, 49, 49);" rowspan="2">
+
+          <mat-grid-tile-header style="text-align: center;"> 
+            <h3 style="font-size:20px;">Total Death Cases</h3>
+          </mat-grid-tile-header>
+          <h1 style="font-size:40px">{{deaths}}</h1>
+
+        </mat-grid-tile>
+
+      </mat-grid-list>
+    </mat-card>
   </section>
 </body>
+
 </html>

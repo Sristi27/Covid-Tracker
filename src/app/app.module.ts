@@ -9,6 +9,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
+import {MatGridListModule} from '@angular/material/grid-list';
+
+
 import { AppComponent } from './app.component';
 
 
@@ -19,8 +22,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent
   ],
   imports: [
-    BrowserModule,HttpClientModule, BrowserAnimationsModule,MatCardModule,MatButtonModule,
-    MatSelectModule,FormsModule,ReactiveFormsModule,MatFormFieldModule,MatInputModule,CovidLibModule
+    BrowserModule,HttpClientModule, BrowserAnimationsModule,
+    MatCardModule,MatButtonModule,MatGridListModule,
+    MatSelectModule,FormsModule,ReactiveFormsModule,
+    MatFormFieldModule,MatInputModule,CovidLibModule
   ],
   providers: [],
   bootstrap: [AppComponent]
