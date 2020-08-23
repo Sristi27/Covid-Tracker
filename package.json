@@ -2,7 +2,7 @@
   "name": "covid-tracker",
   "version": "0.0.0",
   "engines": {
-    "node": "10.90.0"
+    "node": "6.11.1"
   },
   "scripts": {
     "ng": "ng",
