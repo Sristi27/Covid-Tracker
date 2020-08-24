@@ -4,12 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>{{title}}</title>
 </head>
 
 <body>
   <section>
-    <h1>Coronavirus Tracker</h1>
+    <span class="h"><h1>Coronavirus Tracker</h1></span>
     <form action="" (submit)="getData($event.target.value)">
       <mat-form-field appearance="outline">
         <mat-label>Select a country</mat-label>
@@ -22,11 +23,13 @@
         Get Coronavirus Data
       </button>
     </form>
+ 
+
     <mat-card *ngIf="status">
 
       <mat-grid-list cols="3" [gutterSize]="'10px'" rowHeight="6rem">
 
-        <mat-grid-tile style="background-color: rgb(248, 178, 138);" rowspan="2">
+        <mat-grid-tile style="background-color: rgb(27, 123, 248);" rowspan="2">
 
           <mat-grid-tile-header  style="text-align: center;">
             <h3 style="font-size:20px">Total Confirmed Cases</h3>
@@ -35,7 +38,7 @@
 
         </mat-grid-tile>
 
-        <mat-grid-tile style="background-color: rgb(47, 187, 47);" rowspan="2">
+        <mat-grid-tile style="background-color: rgb(76, 245, 76);" rowspan="2">
 
           <mat-grid-tile-header  style="text-align: center;">
             <h3 style="font-size:20px">Total Recovered Cases</h3>
@@ -54,8 +57,18 @@
         </mat-grid-tile>
 
       </mat-grid-list>
+
+      <!-- <div>
+        <div class="col">
+          <google-chart></google-chart>
+      </div>
+
+      </div> -->
+    
     </mat-card>
   </section>
 </body>
 
 </html>
+
+

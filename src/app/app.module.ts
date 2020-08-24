@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {CovidLibModule} from 'covid-lib';
+import { GoogleChartsModule } from 'angular-google-charts';
 
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
@@ -25,9 +26,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,HttpClientModule, BrowserAnimationsModule,
     MatCardModule,MatButtonModule,MatGridListModule,
     MatSelectModule,FormsModule,ReactiveFormsModule,
-    MatFormFieldModule,MatInputModule,CovidLibModule
+    MatFormFieldModule,MatInputModule,CovidLibModule,
+    GoogleChartsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

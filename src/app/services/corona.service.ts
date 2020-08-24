@@ -17,5 +17,13 @@ export class CoronaService {
     const url="https://api.covid19api.com/total/dayone/country/" + country;
     return this.http.get<any>(url);
   }
+  getSummary()
+  {
+    return this.http.get<any>("https://api.covid19api.com/summary");
+  }
+  getData(country:any)
+  {
+    return this.http.get<any>("https://api.covid19api.com/total/dayone/country/${country}/status/:status");
+  }
 }
 
