@@ -1,5 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { CoronaService } from "./services/corona.service"
+import {Chart} from 'node_modules/chart.js';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -16,9 +17,10 @@ export class AppComponent implements OnInit {
   recovered: number = 0;
   deaths: number = 0;
   confirmed: number = 0;
+  chart1:any;
 
-  constructor(private service: CoronaService) { };
-
+  constructor(private service: CoronaService,
+    private elementRef:ElementRef) { };
 
 
   ngOnInit() {
@@ -38,9 +40,9 @@ export class AppComponent implements OnInit {
   }
   getData(name: any) {
 
+    
 
     var table = [];
-
     this.service.getCountryData(this.val).subscribe(
       data => {
         // console.log(data)
@@ -53,9 +55,26 @@ export class AppComponent implements OnInit {
         this.confirmed = data[index].Confirmed;
         this.recovered = data[index].Recovered;
         this.deaths = data[index].Deaths;
+       
+       this.getChart(this.confirmed,this.recovered,this.deaths);
 
       }
     )
+  }
+
+  getChart(c,r,d)
+  {
+    this.chart1 = new Chart('barChart', {
+      type: 'bar',
+      data: {
+        labels: ["Active","Recovered","Deaths"],
+        datasets: [{
+          label: "Cases",
+          data: [c,r,d],
+        }]
+      }
+  });
+  console.log(this.chart1)
   }
 
 }
