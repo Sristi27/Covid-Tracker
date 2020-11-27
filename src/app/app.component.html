@@ -1,72 +1,113 @@
-<!DOCTYPE html>
-<html lang="en">
+<section>
+  <h1 class="title">C<img src="../assets/—Pngtree—red covid-19 png vector element_5340869.png" 
+    height="40px" width="50px">ronavirus Tracker</h1>
+  
+   
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>{{title}}</title>
-</head>
+  <div class="center" *ngIf="globalA==0">
+    <mat-progress-spinner diameter=50 mode="indeterminate" color="accent">
+    </mat-progress-spinner>
+  </div>
 
-<body>
-  <section>
-    <span class="h"><h1>Coronavirus Tracker</h1></span>
-    <form action="" (submit)="getData($event.target.value)">
+  <mat-card *ngIf="globalA!=0" class="card-one">
+
+
+    <mat-card-title style="text-align: center;margin-bottom:30px;">Total Cases - {{globalC | number}}
+       <span style="font-size:15px;">(+{{newC|number}})</span></mat-card-title>
+
+
+
+    <mat-grid-list cols="3" [gutterSize]="'32px'" rowHeight="4rem" class="one">
+
+      <mat-grid-tile style="background-color:rgb(27, 123, 248);" rowspan="2">
+
+        <div class="header-one">
+          <img src="../assets/1f.png">
+          <p>Active</p>
+          <h1>{{globalA | number}}</h1>
+          <h4>+{{newA | number}}</h4>
+
+        </div>
+
+      </mat-grid-tile>
+
+      <mat-grid-tile style="background-color:rgb(2, 230, 2);" rowspan="2">
+        <div class="header-one">
+          <img src="../assets/2f.png">
+          <p>Recovered</p>
+          <h1>{{globalR | number}}</h1>
+          <h4>+{{newR | number}}</h4>
+        </div>
+
+      </mat-grid-tile>
+
+      <mat-grid-tile style="background-color:  rgb(211, 49, 49);" rowspan="2">
+        <div class="header-one"><img src="../assets/3f.png">
+          <p>Deaths</p>
+          <h1>{{globalD | number}}</h1>
+          <h4>+{{newD | number}}</h4>
+        </div>
+      </mat-grid-tile>
+
+    </mat-grid-list>
+
+
+  </mat-card>
+
+
+  <div class="form">
+    <form action="" *ngIf="globalA!=0" (submit)="getData($event.target.value)">
       <mat-form-field appearance="outline">
         <mat-label>Select a country</mat-label>
         <mat-select name="country" [(ngModel)]="val">
           <mat-option [value]="country.Slug" *ngFor="let country of countries">{{country.Country}}</mat-option>
         </mat-select>
       </mat-form-field>
-
+  
       <button mat-raised-button color="primary" type="submit">
         Get Coronavirus Data
       </button>
     </form>
-    
-
-    <mat-card *ngIf="status">
-
-      <mat-grid-list cols="3" [gutterSize]="'10px'" rowHeight="6rem">
-
-        <mat-grid-tile style="background-color: rgb(27, 123, 248);" rowspan="2">
-
-          <mat-grid-tile-header  style="text-align: center;">
-            <h3 style="font-size:20px">Total Confirmed Cases</h3>
-          </mat-grid-tile-header>
-          <h1 style="font-size:40px">{{confirmed}}</h1>
-
-        </mat-grid-tile>
-
-        <mat-grid-tile style="background-color: rgb(76, 245, 76);" rowspan="2">
-
-          <mat-grid-tile-header  style="text-align: center;">
-            <h3 style="font-size:20px">Total Recovered Cases</h3>
-          </mat-grid-tile-header>
-          <h1 style="font-size:40px">{{recovered}}</h1>
-
-        </mat-grid-tile>
-
-        <mat-grid-tile style="background-color: rgb(211, 49, 49);" rowspan="2">
-
-          <mat-grid-tile-header style="text-align: center;"> 
-            <h3 style="font-size:20px;">Total Death Cases</h3>
-          </mat-grid-tile-header>
-          <h1 style="font-size:40px">{{deaths}}</h1>
-
-        </mat-grid-tile>
-
-      </mat-grid-list>
-
-        <canvas id="barChart" width="200px" height="150px" >
+  </div>
   
-        </canvas>
-      
-    
-    </mat-card>
-  </section>
-</body>
-
-</html>
 
 
+  <mat-card *ngIf="status"> | number
+
+    <mat-grid-list cols="3" [gutterSize]="'35px'" rowHeight="5rem" class="two">
+
+      <mat-grid-tile style="outline:6px solid rgb(27, 123, 248);" rowspan="2">
+
+        <div class="header" style="background-color: rgb(27, 123, 248);">
+          <img src="../assets/1f.png">
+          <p style="font-size:20px;">Active</p>
+        </div>
+
+        <h1 style="font-size:40px;color:rgb(27, 123, 248);">{{active | number}}</h1>
+
+      </mat-grid-tile>
+
+      <mat-grid-tile style="outline: 6px solid rgb(24, 248, 24);" rowspan="2">
+        <div class="header" style="background-color:rgb(24, 248, 24) ;">
+          <img src="../assets/2f.png">
+          <p>Recovered</p>
+        </div>
+        <h1 style="font-size:40px;color: rgb(24, 248, 24) ;">{{recovered | number}}</h1>
+
+      </mat-grid-tile>
+
+      <mat-grid-tile style="outline:6px solid rgb(211, 49, 49);" rowspan="2">
+        <div class="header" style="background-color: rgb(211, 49, 49);">
+          <img src="../assets/3f.png">
+          <p style="font-size:20px">Deaths</p>
+        </div>
+        <h1 style="font-size:40px;color:rgb(211, 49, 49);">{{deaths | number}}</h1>
+
+      </mat-grid-tile>
+
+    </mat-grid-list>
+
+
+  </mat-card>
+</section>

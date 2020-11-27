@@ -10,6 +10,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 
 
 import { AppComponent } from './app.component';
@@ -26,7 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatCardModule,MatButtonModule,MatGridListModule,
     MatSelectModule,FormsModule,ReactiveFormsModule,
     MatFormFieldModule,MatInputModule,
-    GoogleChartsModule
+    GoogleChartsModule,MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent],

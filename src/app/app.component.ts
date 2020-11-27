@@ -16,8 +16,19 @@ export class AppComponent implements OnInit {
   country: any;
   recovered: number = 0;
   deaths: number = 0;
+  active:number=0;
   confirmed: number = 0;
   chart1:any;
+
+  globalC =0;
+  globalR=0;
+  globalD=0;
+  globalA=0;
+
+  newC=0;
+  newR=0;
+  newD=0;
+  newA=0;
 
   constructor(private service: CoronaService,
     private elementRef:ElementRef) { };
@@ -25,6 +36,22 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
 
+    
+
+    this.service.getSummary().subscribe(
+      data=>
+      {
+        data=data.Global;
+        this.globalC=data.TotalConfirmed;
+        this.globalD=data.TotalDeaths;
+        this.globalR=data.TotalRecovered;
+        this.newC=data.NewConfirmed;
+        this.newR=data.NewRecovered;
+        this.newD=data.NewDeaths;
+        this.newA=this.newC-this.newR-this.newD;
+        this.globalA=this.globalC-this.globalR-this.globalD
+      }
+    )
     this.service.getCountries().subscribe(
       data => {
         this.countries = data;
@@ -55,6 +82,7 @@ export class AppComponent implements OnInit {
         this.confirmed = data[index].Confirmed;
         this.recovered = data[index].Recovered;
         this.deaths = data[index].Deaths;
+        this.active=this.confirmed-this.recovered-this.deaths;
        
        this.getChart(this.confirmed,this.recovered,this.deaths);
 
