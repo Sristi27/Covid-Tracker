@@ -30,6 +30,8 @@ export class AppComponent implements OnInit {
   newD=0;
   newA=0;
 
+  
+
   constructor(private service: CoronaService,
     private elementRef:ElementRef) { };
 
@@ -60,15 +62,12 @@ export class AppComponent implements OnInit {
     )
 
   }
-  getSummary() {
-    this.service.getSummary().subscribe(
-      res => console.log(res)
-    )
-  }
+
+  
   getData(name: any) {
 
     
-
+    this.country=name;
     var table = [];
     this.service.getCountryData(this.val).subscribe(
       data => {
