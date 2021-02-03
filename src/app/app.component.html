@@ -10,50 +10,58 @@
     </mat-progress-spinner>
   </div>
 
-  <mat-card *ngIf="globalA!=0" class="card-one">
+ 
+    <mat-card *ngIf="globalA!=0" class="card-one">
 
 
-    <mat-card-title style="text-align: center;margin-bottom:30px;">Total Cases - {{globalC | number}}
-       <span style="font-size:15px;">(+{{newC|number}})</span></mat-card-title>
+      <mat-card-title style="text-align: center;margin-bottom:30px;">Total Cases - {{globalC | number}}
+         <span style="font-size:15px;">(+{{newC|number}})</span></mat-card-title>
+  
+  
+  
+      <mat-grid-list cols="4" [gutterSize]="'32px'" rowHeight="5rem" class="one">
+  
+        <mat-grid-tile style="background-color:rgb(27, 123, 248);" rowspan="2">
+  
+          <div class="header-one">
+            <img src="../assets/1f.png">
+            <p>Active</p>
+            <h1>{{globalA | number}}</h1>
+            <h4>+{{newA | number}}</h4>
+  
+          </div>
+  
+        </mat-grid-tile>
+  
+        <mat-grid-tile style="background-color:rgb(2, 230, 2);" rowspan="2">
+          <div class="header-one">
+            <img src="../assets/2f.png">
+            <p>Recovered</p>
+            <h1>{{globalR | number}}</h1>
+            <h4>+{{newR | number}}</h4>
+          </div>
+  
+        </mat-grid-tile>
+  
+        <mat-grid-tile style="background-color:  rgb(211, 49, 49);" rowspan="2">
+          <div class="header-one"><img src="../assets/3f.png">
+            <p>Deaths</p>
+            <h1>{{globalD | number}}</h1>
+            <h4>+{{newD | number}}</h4>
+          </div>
+        </mat-grid-tile>
 
-
-
-    <mat-grid-list cols="3" [gutterSize]="'32px'" rowHeight="4rem" class="one">
-
-      <mat-grid-tile style="background-color:rgb(27, 123, 248);" rowspan="2">
-
-        <div class="header-one">
-          <img src="../assets/1f.png">
-          <p>Active</p>
-          <h1>{{globalA | number}}</h1>
-          <h4>+{{newA | number}}</h4>
-
-        </div>
-
-      </mat-grid-tile>
-
-      <mat-grid-tile style="background-color:rgb(2, 230, 2);" rowspan="2">
-        <div class="header-one">
-          <img src="../assets/2f.png">
-          <p>Recovered</p>
-          <h1>{{globalR | number}}</h1>
-          <h4>+{{newR | number}}</h4>
-        </div>
-
-      </mat-grid-tile>
-
-      <mat-grid-tile style="background-color:  rgb(211, 49, 49);" rowspan="2">
-        <div class="header-one"><img src="../assets/3f.png">
-          <p>Deaths</p>
-          <h1>{{globalD | number}}</h1>
-          <h4>+{{newD | number}}</h4>
-        </div>
-      </mat-grid-tile>
-
-    </mat-grid-list>
-
-
-  </mat-card>
+        <mat-grid-tile rowspan="2">
+          <!-- <div class="header-one"> -->
+          <img src="../assets/girl.png" alt="logo" style="height: 210px;
+          width: 250px;"> 
+          <!-- </div> -->
+        </mat-grid-tile>
+  
+      </mat-grid-list>
+  
+  
+    </mat-card>
 
 
   <div class="form">
@@ -73,11 +81,15 @@
   
 
 
-  <mat-card *ngIf="status"> 
+  <div class="output" style="display: flex;">
+  
+  
 
-    <mat-grid-list cols="3" [gutterSize]="'35px'" rowHeight="5rem" class="two">
+  <mat-card *ngIf="status" class="card-two"> 
 
-      <mat-grid-tile style="outline:6px solid rgb(27, 123, 248);" rowspan="2">
+    <mat-grid-list cols="1" *ngIf="status" [gutterSize]="'35px'" rowHeight="12rem" class="two">
+
+      <mat-grid-tile style="outline:6px solid rgb(27, 123, 248);" >
 
         <div class="header" style="background-color: rgb(27, 123, 248);">
           <img src="../assets/1f.png">
@@ -88,7 +100,7 @@
 
       </mat-grid-tile>
 
-      <mat-grid-tile style="outline: 6px solid rgb(24, 248, 24);" rowspan="2">
+      <mat-grid-tile style="outline: 6px solid rgb(24, 248, 24);">
         <div class="header" style="background-color:rgb(24, 248, 24) ;">
           <img src="../assets/2f.png">
           <p>Recovered</p>
@@ -97,7 +109,7 @@
 
       </mat-grid-tile>
 
-      <mat-grid-tile style="outline:6px solid rgb(211, 49, 49);" rowspan="2">
+      <mat-grid-tile style="outline:6px solid rgb(211, 49, 49);" >
         <div class="header" style="background-color: rgb(211, 49, 49);">
           <img src="../assets/3f.png">
           <p style="font-size:20px">Deaths</p>
@@ -110,4 +122,8 @@
 
 
   </mat-card>
+
+  <img src="../assets/—Pngtree—red covid-19 png vector element_5340869.png" height="400px" width="400px">
+  </div>
+
 </section>
