@@ -1,0 +1,24 @@
+.container
+{
+  width: 100%;
+  display: flex;
+}
+.form
+{
+  width: 40%;
+}
+.cards
+{
+  width: 60%;
+}
+
+  .mat-form-field{
+    width:40%;
+    margin:0 20px;
+    border-radius: 5%;
+  }
+
+  .mat-form-field-wrapper
+  {
+    background-color: white;
+  }

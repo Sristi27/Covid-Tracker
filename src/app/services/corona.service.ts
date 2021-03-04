@@ -8,6 +8,10 @@ export class CoronaService {
 
   constructor(public http: HttpClient) { }
 
+  getAllData()
+  {
+    return this.http.get<any>("https://disease.sh/v3/covid-19/all")
+  }
   getCountries() {
 
     return this.http.get<any>("https://api.covid19api.com/countries");

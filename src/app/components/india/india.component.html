@@ -1,0 +1,26 @@
+
+<app-data-card *ngIf="indiaData" [data]="indiaData"></app-data-card>
+
+<div class="form">
+    <form action="" 
+    (submit)="getStateData($event.target.value)">
+     
+     <!-- *ngIf="globalA!=0"" -->
+     
+        <mat-form-field appearance="outline">
+          <mat-label>Select a state</mat-label>
+          <mat-select name="state" [(ngModel)]="val">
+            <mat-option [value]="state" *ngFor="let state of states">{{state}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+    
+        <button mat-raised-button color="primary" type="submit">
+          Get Coronavirus Data
+        </button>
+      </form>
+    
+</div>
+
+
+
+<app-state *ngIf="specificState" [data]="specificState"></app-state>

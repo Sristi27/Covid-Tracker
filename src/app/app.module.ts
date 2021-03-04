@@ -11,23 +11,37 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 
 import { AppComponent } from './app.component';
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { IndiaComponent } from './components/india/india.component';
+import { DataCardComponent } from './components/data-card/data-card.component';
+import { GlobalComponent } from './components/global/global.component';
+import { AppRoutingModule } from './app-routing.module';
+import { StateComponent } from './components/state/state.component';
+import { ChartsComponent } from './components/charts/charts.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    IndiaComponent,
+    DataCardComponent,
+    GlobalComponent,
+    StateComponent,
+    ChartsComponent
   ],
   imports: [
     BrowserModule,HttpClientModule, BrowserAnimationsModule,
     MatCardModule,MatButtonModule,MatGridListModule,
     MatSelectModule,FormsModule,ReactiveFormsModule,
-    MatFormFieldModule,MatInputModule,
-    GoogleChartsModule,MatProgressSpinnerModule
+    MatFormFieldModule,MatInputModule,MatToolbarModule,
+    GoogleChartsModule,MatProgressSpinnerModule, AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent],

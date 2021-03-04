@@ -1,0 +1,54 @@
+<mat-card class="card-one">
+
+
+    <mat-card-title *ngIf="data.country">
+       <span>{{data.country}}-({{data.continent}})</span>
+    </mat-card-title>
+    <mat-card-title *ngIf="!data.country">
+      <span>Global</span>
+   </mat-card-title>
+
+
+    <mat-grid-list cols="4" [gutterSize]="'32px'" rowHeight="5rem" class="one">
+
+      <mat-grid-tile style="background-color:rgb(27, 123, 248);" rowspan="2">
+
+        <div class="header-one">
+         <img src="../../../assets/1f.png">
+          <p>Active</p> 
+          <h1>{{ data.active | number}}</h1>
+          <h4>+{{ data.todayCases | number}}</h4> 
+        </div>
+
+      </mat-grid-tile>
+
+      <mat-grid-tile style="background-color:rgb(2, 230, 2);" rowspan="2">
+        <div class="header-one">
+          <img src="../../../assets/2f.png">
+          <p>Recovered</p>
+          <h1>{{data.recovered| number}}</h1>
+          <!--<h4>+{{today | number}}</h4> -->
+         
+        </div>
+
+      </mat-grid-tile>
+
+      <mat-grid-tile style="background-color:  rgb(211, 49, 49);" rowspan="2">
+        <div class="header-one">
+         <img src="../../../assets/3f.png">
+          <p>Deaths</p>
+            <h1>{{data.deaths | number}}</h1>
+          <h4>+{{ data.todayDeaths | number}}</h4>
+        </div>
+      </mat-grid-tile>
+
+      <mat-grid-tile rowspan="2">
+          <img src="../../../assets/girl.png" alt="logo" style="height: 210px;
+          width: 250px;"> 
+        </mat-grid-tile>
+
+    </mat-grid-list>
+
+
+
+  </mat-card>

@@ -39,7 +39,9 @@ export class AppComponent implements OnInit {
   ngOnInit() {
 
     
-
+     this.service.getAllData().subscribe(
+       data=>console.log(data)
+     )
     this.service.getSummary().subscribe(
       data=>
       {
