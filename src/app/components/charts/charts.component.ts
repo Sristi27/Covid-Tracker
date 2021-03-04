@@ -10,7 +10,7 @@ export class ChartsComponent implements OnInit {
 
   constructor() { }
 
-  chart;
+  chart=[];
   ngOnInit(): void {
 
 
