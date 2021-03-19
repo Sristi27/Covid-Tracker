@@ -12,7 +12,7 @@ const routes:Routes=[
   {path:'all',component:GlobalComponent}
 ]
 @NgModule({
-  imports:[RouterModule.forRoot(routes)],
+  imports:[RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
   exports:[RouterModule]
 })
 export class AppRoutingModule { }

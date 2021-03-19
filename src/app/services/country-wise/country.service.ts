@@ -22,5 +22,17 @@ export class CountryService {
     // return this.http.get<any>("https://disease.sh/v3/covid-19/historical/India?lastdays=all");
     return this.http.get<any>(`https://corona.lmao.ninja/v2/countries/${country}?yesterday=true&strict=true&query`)
   }
+  getCountryTimewise(country:any)
+  {
+    return this.http.get<any>(`https://disease.sh/v3/covid-19/historical/${country}?lastdays=all`);
+  }
 
+  getGlobalVaccineData()
+  {
+    return this.http.get<any>("https://disease.sh/v3/covid-19/vaccine/coverage?lastdays=all")
+  }
+  getCountryVaccineData(country)
+  {
+    return this.http.get<any>(`https://disease.sh/v3/covid-19/vaccine/coverage/countries/${country}?lastdays=all`)
+  }
 }

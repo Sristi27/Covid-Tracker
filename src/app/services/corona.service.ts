@@ -12,22 +12,13 @@ export class CoronaService {
   {
     return this.http.get<any>("https://disease.sh/v3/covid-19/all")
   }
-  getCountries() {
+  getAllCountriesData() {
 
-    return this.http.get<any>("https://api.covid19api.com/countries");
+    return this.http.get<any>("https://disease.sh/v3/covid-19/countries?yesterday=true&twoDaysAgo=true&sort=cases&allowNull=true");
   }
-  getCountryData(country:any):Observable<any>{
-
-    const url="https://api.covid19api.com/total/dayone/country/" + country;
-    return this.http.get<any>(url);
-  }
-  getSummary()
+  getGlobalTimeseries()
   {
-    return this.http.get<any>("https://api.covid19api.com/summary");
-  }
-  getData(country:any)
-  {
-    return this.http.get<any>("https://api.covid19api.com/total/dayone/country/${country}/status/:status");
+    return this.http.get("https://covid.ourworldindata.org/data/owid-covid-data.json")
   }
 }
 

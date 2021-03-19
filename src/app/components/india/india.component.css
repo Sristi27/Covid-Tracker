@@ -1,0 +1,41 @@
+
+.table-container
+{
+  height:500px;
+  width:40%;
+  overflow: auto;
+  border:1px solid black;
+}
+.filter
+{
+  margin-top: 5%;
+  width:50%;
+}
+table{
+    width:100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+.state-container
+{
+  margin-top:5%;
+  width:100%;
+  display:flex;
+  justify-content: space-between;
+}
+
+.stateData
+{
+  width:60%;
+}
+
+#chart1
+{
+  
+  width:80%;
+  margin:0 auto;
+}

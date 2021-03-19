@@ -44,7 +44,7 @@
 
 
   .card-one{
-    width:70%;
+    width:100%;
     margin:0 auto;
     background:transparent;
   }
@@ -113,7 +113,6 @@
 
   .card-one{
     border:2px solid white;
-    color:rgb(252, 248, 248);
     padding:50px 20px; 
     /* box-shadow: 10px 10px 13px 0px rgba(87,87,87,0.75);
 -webkit-box-shadow: 10px 10px 13px 0px rgba(87,87,87,0.75);

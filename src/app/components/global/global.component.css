@@ -5,11 +5,11 @@
 }
 .form
 {
-  width: 40%;
+  width:30%;
 }
 .cards
 {
-  width: 60%;
+  width:65%;
 }
 
   .mat-form-field{
@@ -21,4 +21,10 @@
   .mat-form-field-wrapper
   {
     background-color: white;
+  }
+
+
+  .country-chart
+  {
+    width: 30%;
   }

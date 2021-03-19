@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {Chart} from 'chart.js';
-
+import { Component, Input, OnInit } from '@angular/core';
+import {Chart} from 'node_modules/chart.js';
+import { StateService } from 'src/app/services/state.service';
 @Component({
   selector: 'app-charts',
   templateUrl: './charts.component.html',
@@ -8,48 +8,119 @@ import {Chart} from 'chart.js';
 })
 export class ChartsComponent implements OnInit {
 
-  constructor() { }
-
-  chart=[];
-  ngOnInit(): void {
 
 
-  this.chart=new Chart('canvas',
+  @Input() date;
+  @Input() confirmed;
+  @Input() recovered;
+  @Input() deaths;
+
+  newchart;
+
+  constructor() { 
+  }
+
+ngOnInit(): void {
+
+  // console.log(this.date,this.confirmed,this.deaths,this.recovered)
+  this.createChart();
+}
+
+createChart()
+
+{
+  // console.log(this.confirmed,this.recovered,this.deaths)
+  this.newchart=new Chart('linech',
   {
-    type: 'bar',
+    type: 'line',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
+      labels:this.date
     },
     options: {
         scales: {
+          
             yAxes: [{
+          //     gridLines:
+          // {
+          //   drawOnChartArea:false
+          // },
                 ticks: {
-                    beginAtZero: true
+                  display:false
                 }
-            }]
+            }],
+            xAxes:[{
+              gridLines:
+          {
+            drawOnChartArea:false,
+            drawBorder:true
+          },
+              ticks:
+              {
+                display:false
+              }
+            }],
+            responsive: true,
+            maintainAspectRatio: true
+           
+          //   xAxes: [{
+          //     // type: 'time',
+          //     // time: {
+          //     //   displayFormats: {
+          //     //     quarter: 'll'
+          //     // }
+          //     // },
+          //     ticks: {
+          //       displ
+          //     }
+          // }]
         }
     }
 })
+this.createData();
+}
+
+createData()
+{
+  var newData=[{
+    label: 'Confirmed',
+    data: this.confirmed,
+    borderColor:'green'
+    },
+    {
+      label: 'Recovered',
+      data: this.recovered,
+      borderColor:'blue'
+    },
+    {
+    label: 'Deaths',
+    data: this.deaths,
+    borderColor:'red'
+    }]
+
+    this.updateGraph(newData);
+
+}
+
+
+updateGraph(newData) {
+  
+  // this.newchart.data.datasets=[];
+  if(this.newchart.data.datasets)
+  {
+    for(let i=0;i<3;i++) this.newchart.data.datasets.pop();
   }
+  newData.forEach(element => {
+    this.newchart.data.datasets.push(
+      {
+        label:element.label,
+        data:element.data,
+        borderColor:element.borderColor,
+        hoverBackgroundColor:element.hoverBackgroundColor
+      }
+    )
+  });
+  this.newchart.update();
+}
+
+
 }

@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
-import { GoogleChartsModule } from 'angular-google-charts';
 
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
@@ -12,6 +11,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatTableModule} from '@angular/material/table';
 
 
 import { AppComponent } from './app.component';
@@ -41,7 +41,7 @@ import { ChartsComponent } from './components/charts/charts.component';
     MatCardModule,MatButtonModule,MatGridListModule,
     MatSelectModule,FormsModule,ReactiveFormsModule,
     MatFormFieldModule,MatInputModule,MatToolbarModule,
-    GoogleChartsModule,MatProgressSpinnerModule, AppRoutingModule
+    MatProgressSpinnerModule, AppRoutingModule,MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent],

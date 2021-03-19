@@ -9,8 +9,10 @@ export class DataCardComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    console.log(this.data)
+  }
 
   @Input()data;
-
+ 
 }
